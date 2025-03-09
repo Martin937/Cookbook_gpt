@@ -1,0 +1,9 @@
+:root {
+  --main-font: 'Nunito', sans-serif;
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --text-light: #666;
+  --accent-color: #ff6b6b;
+  --accent-dark: #d9534f;
+  --card-bg: white;
+}

@@ -1,0 +1,23 @@
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  .recipe-card {
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .recipe-card h2 {
+    font-size: 1.2em;
+  }
+
+  .recipe-card p {
+    font-size: 0.9em;
+  }
+}

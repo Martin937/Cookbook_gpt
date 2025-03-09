@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Список рецептов</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+
+	<header>
+		<h1>Мои рецепты</h1>
+		<button id="add-recipe-btn" onclick="location.href='addRecipe.html'">➕ Добавить рецепт</button>
+	</header>
+
+	<main>
+		<div class="recipe-filters">
+			<input type="text" id="search-input" placeholder="🔍 Поиск рецептов...">
+
+			<select id="meal-type-filter">
+				<option value="">Все приемы пищи</option>
+				<option value="breakfast">Завтрак</option>
+				<option value="lunch">Обед</option>
+				<option value="dinner">Ужин</option>
+				<option value="dessert">Десерт</option>
+			</select>
+
+			<select id="dish-type-filter">
+				<option value="">Все типы блюд</option>
+				<option value="regular">Обычное</option>
+				<option value="diet">Диетическое</option>
+			</select>
+
+			<select id="sort-filter">
+				<option value="a-z">От А до Я</option>
+				<option value="z-a">От Я до А</option>
+				<option value="newest">Сначала новые</option>
+				<option value="oldest">Сначала старые</option>
+			</select>
+		</div>
+
+		<div id="recipe-list"></div>
+	</main>
+
+
+	<script type="module" src="js/db.js"></script>
+	<script type="module" src="js/index.js"></script>
+	<script type="module" src="js/animations.js"></script>
+</body>
+
+</html>

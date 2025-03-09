@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Рецепт</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+	<header>
+		<h1 id="recipe-title">Загрузка...</h1>
+	</header>
+
+	<main>
+		<img id="recipe-image" src="assets/img/default.jpg" alt="Фото рецепта">
+		<p id="recipe-description"></p>
+
+		<div class="recipe-meta">
+			<p><strong>Прием пищи:</strong> <span id="recipe-meal-type">—</span></p>
+			<p><strong>Тип блюда:</strong> <span id="recipe-dish-type">—</span></p>
+		</div>
+
+		<h2>Ингредиенты</h2>
+		<ul id="recipe-ingredients"></ul>
+
+		<h2>Шаги приготовления</h2>
+		<ol id="recipe-steps"></ol>
+
+		<div class="actions">
+			<button id="edit-recipe">✏ Редактировать</button>
+			<button id="download-pdf">📄 Скачать PDF</button>
+			<button id="share-recipe">📢 Поделиться</button>
+			<button id="back-home">🏠 На главную</button>
+		</div>
+	</main>
+
+	<script type="module" src="js/db.js"></script>
+	<script type="module" src="js/recipe.js"></script>
+	<script type="module" src="js/pdfExport.js"></script>
+	<script type="module" src="js/webShare.js"></script>
+
+</body>
+
+</html>

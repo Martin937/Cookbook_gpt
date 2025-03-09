@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Редактировать рецепт</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+	<header>
+		<h1>Редактировать рецепт</h1>
+	</header>
+
+	<main>
+		<form id="edit-recipe-form" class="recipe-form">
+			<label for="edit-recipe-title">Название рецепта:</label>
+			<input type="text" id="edit-recipe-title" required>
+
+			<label for="edit-recipe-description">Описание:</label>
+			<textarea id="edit-recipe-description" required></textarea>
+
+			<label for="edit-recipe-ingredients">Ингредиенты (каждый с новой строки):</label>
+			<textarea id="edit-recipe-ingredients" required></textarea>
+
+			<label for="edit-recipe-steps">Шаги приготовления (каждый с новой строки):</label>
+			<textarea id="edit-recipe-steps" required></textarea>
+
+			<label for="edit-recipe-image">Изображение:</label>
+			<input type="file" id="edit-recipe-image" accept="image/*">
+
+			<label>Прием пищи:</label>
+			<div class="checkbox-group">
+				<label><input type="checkbox" name="edit-mealType" value="breakfast"> Завтрак</label>
+				<label><input type="checkbox" name="edit-mealType" value="lunch"> Обед</label>
+				<label><input type="checkbox" name="edit-mealType" value="dinner"> Ужин</label>
+				<label><input type="checkbox" name="edit-mealType" value="dessert"> Десерт</label>
+			</div>
+
+			<label>Тип блюда:</label>
+			<div class="radio-group">
+				<label><input type="radio" name="edit-dishType" value="regular"> Обычное</label>
+				<label><input type="radio" name="edit-dishType" value="diet"> Диетическое</label>
+			</div>
+
+			<div class="actions">
+				<button type="submit">💾 Сохранить изменения</button>
+				<button type="button" id="cancel-edit">❌ Отменить</button>
+			</div>
+		</form>
+	</main>
+
+	<script type="module" src="js/editRecipe.js"></script>
+</body>
+
+</html>

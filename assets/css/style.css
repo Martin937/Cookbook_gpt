@@ -1,0 +1,247 @@
+/* Подключение других CSS-файлов */
+@import url('reset.css'); /* Сброс стилей */
+@import url('variables.css'); /* Глобальные переменные */
+@import url('fonts.css'); /* Шрифты */
+@import url('animations.css'); /* Анимации */
+@import url('media.css'); /* Адаптивность */
+
+/* 🔹 Общие стили */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔹 Контейнер для контента */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Закрепляем header при прокрутке */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--primary-color);
+  color: var(--text-color);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Чтобы он был выше других элементов */
+}
+
+header h1 {
+  font-size: 1.8em;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+main {
+  margin: 1rem;
+}
+
+/* Закрепляем блок фильтров (поиска) при прокрутке */
+.recipe-filters {
+  position: sticky;
+  top: 70px; /* Чтобы не перекрывать header */
+  background: var(--card-bg);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999; /* Чтобы он оставался поверх рецептов */
+
+  /* Стили для расположения элементов */
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recipe-filters input,
+.recipe-filters select {
+  padding: 8px 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.recipe-filters input {
+  width: 200px;
+}
+
+.recipe-filters select {
+  width: 180px;
+  cursor: pointer;
+}
+.checkbox-group,
+.radio-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.checkbox-group label,
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1em;
+}
+
+/* 🔹 Карточки рецептов */
+.recipe-card {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+}
+
+/* Контейнер для изображения рецепта */
+.recipe-image-container {
+  width: 50%;
+  height: auto;
+}
+
+.recipe-image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Контейнер для информации */
+.recipe-info-container {
+  width: 50%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 1; /* Это заставит .recipe-info-container занимать оставшуюся высоту */
+}
+
+.recipe-info-container h2 {
+  margin: 10px 0;
+  font-size: 1.5em;
+}
+
+.recipe-info-container p {
+  font-size: 1em;
+  color: var(--text-light);
+}
+
+.recipe-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+/* 🔹 Стили для изображения рецепта в рецепте */
+#recipe-image {
+  width: 50vw;
+  height: auto;
+}
+
+/* 🔹 Стили для форм (добавление и редактирование рецепта) */
+.recipe-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-form label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.recipe-form input,
+.recipe-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.recipe-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.recipe-form button:hover {
+  background: var(--accent-dark);
+}
+
+.recipe-dish-type {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.recipe-dish-type span {
+  font-size: 18px;
+}
+
+/* 🔹 Стили для кнопок */
+button {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+/* 🔹 Скрытие кнопок при печати (для PDF-экспорта) */
+.no-print {
+  display: none;
+}

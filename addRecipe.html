@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Добавить рецепт</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+	<header>
+		<h1>Добавить новый рецепт</h1>
+	</header>
+
+	<main>
+		<form id="recipe-form" class="recipe-form">
+			<label for="recipe-title">Название рецепта:</label>
+			<input type="text" id="recipe-title" required>
+
+			<label for="recipe-description">Описание:</label>
+			<textarea id="recipe-description" required></textarea>
+
+			<label for="recipe-ingredients">Ингредиенты (каждый с новой строки):</label>
+			<textarea id="recipe-ingredients" required></textarea>
+
+			<label for="recipe-steps">Шаги приготовления (каждый с новой строки):</label>
+			<textarea id="recipe-steps" required></textarea>
+
+			<label for="recipe-image">Изображение:</label>
+			<input type="file" id="recipe-image" accept="image/*">
+
+			<label>Прием пищи:</label>
+			<div class="checkbox-group">
+				<label><input type="checkbox" name="mealType" value="breakfast"> Завтрак</label>
+				<label><input type="checkbox" name="mealType" value="lunch"> Обед</label>
+				<label><input type="checkbox" name="mealType" value="dinner"> Ужин</label>
+				<label><input type="checkbox" name="mealType" value="dessert"> Десерт</label>
+			</div>
+
+			<label>Тип блюда:</label>
+			<div class="radio-group">
+				<label><input type="radio" name="dishType" value="regular" checked> Обычное</label>
+				<label><input type="radio" name="dishType" value="diet"> Диетическое</label>
+			</div>
+
+
+			<div class="actions">
+				<button type="submit">💾 Сохранить рецепт</button>
+				<button type="button" id="cancel-recipe">❌ Отменить</button>
+			</div>
+		</form>
+	</main>
+
+	<script type="module" src="js/addRecipe.js"></script>
+</body>
+
+</html>
