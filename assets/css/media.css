@@ -1,6 +1,15 @@
+/*---------------media-------------------*/
 @media (max-width: 790px) {
   .container {
     width: 95vw;
+  }
+  header h1 {
+    font-size: 1.6em;
+  }
+  button,
+  .recipe-form button {
+    padding: 8px 12px;
+    font-size: 0.9em;
   }
 
   .recipe-filters input,
@@ -9,22 +18,69 @@
     padding: 5px 12px;
     font-size: 0.9em;
   }
+
+  .recipe-form {
+    max-width: 75%;
+  }
+  .actions button {
+    width: 40%;
+  }
 }
 
 @media (max-width: 560px) {
   .recipe-filters input,
   .recipe-filters select {
-    padding: 5px 12px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+  }
+  .recipe-card {
+    padding: 10px;
+    flex-direction: column;
+  }
+  .recipe-image-container,
+  .recipe-info-container {
+    width: 100%;
+  }
+  .recipe-form label {
+    font-size: 0.9em;
+  }
+  .recipe-form input,
+  .recipe-form textarea {
     font-size: 0.9em;
   }
 }
 
+@media (max-width: 500px) {
+  .recipe-form label {
+    font-size: 0.8em;
+  }
+  .recipe-form {
+    padding: 10px;
+  }
+  .recipe-form input,
+  .recipe-form textarea {
+    font-size: 0.8em;
+  }
+}
 @media (max-width: 480px) {
-  /* .recipe-card h2 {
+  header h1 {
+    font-size: 1.4em;
+  }
+  button,
+  .recipe-form button {
+    padding: 6px 10px;
+    font-size: 0.8em;
+  }
+  .r ecipe-filters input,
+  .recipe-filters select {
+    padding: 4px 8px;
+    font-size: 0.8em;
+  }
+  .recipe-card h2 {
     font-size: 1.2em;
   }
 
   .recipe-card p {
     font-size: 0.9em;
-  } */
+  }
 }
