@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Список рецептов</title>
+	<link rel="manifest" href="manifest.json">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
@@ -12,8 +13,10 @@
 <body>
 
 	<header>
-		<h1>Мои рецепты</h1>
-		<button id="add-recipe-btn" onclick="location.href='addRecipe.html'">➕ Добавить рецепт</button>
+		<div class="container">
+			<h1>Мои рецепты</h1>
+			<button id="add-recipe-btn" onclick="location.href='addRecipe.html'">➕ Добавить рецепт</button>
+		</div>
 	</header>
 
 	<main>
@@ -42,7 +45,9 @@
 			</select>
 		</div>
 
-		<div id="recipe-list"></div>
+		<div id="recipe-list">
+			<div class="container"></div>
+		</div>
 	</main>
 
 

@@ -1,23 +1,30 @@
-@media (max-width: 768px) {
+@media (max-width: 790px) {
   .container {
-    width: 95%;
+    width: 95vw;
   }
 
-  .recipe-card {
-    padding: 10px;
+  .recipe-filters input,
+  .recipe-filters select {
+    width: 35%;
+    padding: 5px 12px;
+    font-size: 0.9em;
   }
+}
 
-  button {
-    width: 100%;
+@media (max-width: 560px) {
+  .recipe-filters input,
+  .recipe-filters select {
+    padding: 5px 12px;
+    font-size: 0.9em;
   }
 }
 
 @media (max-width: 480px) {
-  .recipe-card h2 {
+  /* .recipe-card h2 {
     font-size: 1.2em;
   }
 
   .recipe-card p {
     font-size: 0.9em;
-  }
+  } */
 }

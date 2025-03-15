@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --main-font: 'Nunito', sans-serif;
   --background-color: #f4f4f4;
   --text-color: #333;
@@ -6,4 +6,20 @@
   --accent-color: #ff6b6b;
   --accent-dark: #d9534f;
   --card-bg: white;
+} */
+:root {
+  --main-font: 'Nunito', sans-serif;
+
+  /* Цвета */
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --text-light: #666;
+  --accent-color: #ff6b6b;
+  --accent-dark: #d9534f;
+  --card-bg: white;
+
+  /* Размеры и отступы */
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
 }
