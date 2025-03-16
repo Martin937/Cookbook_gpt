@@ -81,9 +81,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 				if (imageHeight > window.innerHeight * 0.3) {
 					imageHeight = window.innerHeight * 0.3;
 				}
-				// if (imageHeight > window.innerHeight * 0.5) {
-				// 	imageHeight = window.innerHeight * 0.5;
-				// }
 				image.style.height = `${imageHeight}px`;
 				infoContainer.style.height = `${imageHeight}px`;
 			};

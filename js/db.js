@@ -1,75 +1,3 @@
-// const DB_NAME = "recipeDB";
-// const STORE_NAME = "recipes";
-// const DB_VERSION = 1;
-
-// export function openDB() {
-// 	return new Promise((resolve, reject) => {
-// 		const request = indexedDB.open(DB_NAME, DB_VERSION);
-
-// 		request.onupgradeneeded = (event) => {
-// 			const db = event.target.result;
-// 			if (!db.objectStoreNames.contains(STORE_NAME)) {
-// 				db.createObjectStore(STORE_NAME, { keyPath: "id" });
-// 			}
-// 		};
-
-// 		request.onsuccess = (event) => resolve(event.target.result);
-// 		request.onerror = (event) => reject(event.target.error);
-// 	});
-// }
-
-// export async function saveRecipeToDB(recipe) {
-// 	const db = await openDB(); // Убедись, что эта функция есть!
-// 	const tx = db.transaction("recipes", "readwrite");
-// 	const store = tx.objectStore("recipes");
-
-// 	// Проверяем, существует ли уже этот рецепт
-// 	const existingRecipe = await store.get(recipe.id);
-// 	if (existingRecipe) {
-// 		await store.put(recipe); // Обновляем существующий рецепт
-// 	} else {
-// 		await store.add(recipe); // Добавляем новый рецепт
-// 	}
-
-// 	await tx.done;
-// }
-
-
-
-// export async function getRecipeById(id) {
-// 	const db = await openDB();
-// 	const transaction = db.transaction(STORE_NAME, "readonly");
-// 	const store = transaction.objectStore(STORE_NAME);
-// 	return new Promise((resolve, reject) => {
-// 		const request = store.get(Number(id));
-// 		request.onsuccess = () => resolve(request.result);
-// 		request.onerror = () => reject(request.error);
-// 	});
-// }
-
-// export async function deleteRecipe(id) {
-// 	if (!confirm("Вы уверены, что хотите удалить этот рецепт?")) return;
-// 	const db = await openDB();
-// 	const transaction = db.transaction(STORE_NAME, "readwrite");
-// 	const store = transaction.objectStore(STORE_NAME);
-// 	store.delete(Number(id));
-// 	return new Promise((resolve, reject) => {
-// 		transaction.oncomplete = () => resolve();
-// 		transaction.onerror = (event) => reject(event.target.error);
-// 	});
-// }
-
-// export const getAllRecipes = async () => {
-// 	const db = await openDB();
-// 	const tx = db.transaction(STORE_NAME, "readonly");
-// 	const store = tx.objectStore(STORE_NAME);
-// 	return new Promise((resolve) => {
-// 		const request = store.getAll();
-// 		request.onsuccess = () => resolve(request.result);
-// 	});
-// };
-
-
 const DB_NAME = "recipeDB";
 const STORE_NAME = "recipes";
 const DB_VERSION = 1;
@@ -134,27 +62,6 @@ export async function deleteRecipe(id) {
 	});
 }
 
-// export const getAllRecipes = async () => {
-// 	const db = await openDB();
-// 	const tx = db.transaction(STORE_NAME, "readonly");
-// 	const store = tx.objectStore(STORE_NAME);
-
-// 	return new Promise((resolve) => {
-// 		const request = store.getAll();
-// 		request.onsuccess = () => {
-// 			let recipes = request.result;
-
-// 			// Добавляем dateAdded, если его нет (для старых рецептов)
-// 			recipes.forEach(recipe => {
-// 				if (!recipe.dateAdded) {
-// 					recipe.dateAdded = new Date(0).toISOString(); // Ставим минимально возможную дату
-// 				}
-// 			});
-
-// 			resolve(recipes);
-// 		};
-// 	});
-// };
 export const getAllRecipes = async () => {
 	const db = await openDB();
 	const tx = db.transaction(STORE_NAME, "readwrite");
