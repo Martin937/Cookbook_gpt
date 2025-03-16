@@ -21,22 +21,26 @@ document.addEventListener("DOMContentLoaded", async () => {
 	console.log("Загруженный рецепт:", recipe);
 	console.log("Путь к изображению:", recipe.imagePreview);
 
+	const recipeImage = document.getElementById("recipe-image");
+	recipeImage.style.display = "none"; // Скрываем, пока не загрузится
+
+	if (recipe.imagePreview) {
+		const img = new Image();
+		img.src = recipe.imagePreview;
+		img.onload = () => {
+			recipeImage.src = recipe.imagePreview;
+			adjustImageSize(recipeImage);
+			recipeImage.style.display = "block"; // Показываем после загрузки
+		};
+		img.onerror = () => setDefaultImage(recipeImage);
+	} else {
+		setDefaultImage(recipeImage);
+	}
+
+
 	// Устанавливаем данные рецепта
 	document.getElementById("recipe-title").textContent = recipe.title;
 	document.getElementById("recipe-description").textContent = recipe.description;
-	const recipeImage = document.getElementById("recipe-image");
-	recipeImage.src = recipe.imagePreview || "assets/img/default.jpg";
-
-	// Обрабатываем высоту изображения
-	recipeImage.onload = () => {
-		const headerHeight = document.querySelector("header").offsetHeight;
-		const maxImageHeight = window.innerHeight - headerHeight; // Доступное пространство
-
-		if (recipeImage.height > maxImageHeight) {
-			recipeImage.style.height = `${maxImageHeight}px`;
-			recipeImage.style.width = "auto"; // Сохраняем пропорции
-		}
-	};
 
 	// Отображение типа блюда
 	document.getElementById("recipe-dish-type").textContent =
@@ -92,5 +96,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 	});
 });
 
+// Функция для обработки размера изображения
+function adjustImageSize(image) {
+	const headerHeight = document.querySelector("header").offsetHeight;
+	const maxImageHeight = (window.innerHeight - headerHeight) / 1.5;
 
+	console.log("Header height:", headerHeight);
+	console.log("Max image height:", maxImageHeight);
 
+	if (image.height > maxImageHeight) {
+		image.style.height = `${maxImageHeight}px`;
+		image.style.width = "auto"; // Сохраняем пропорции
+	}
+}
+
+// Функция установки дефолтного изображения
+function setDefaultImage(image) {
+	image.src = "assets/img/default.jpg";
+	image.onload = () => adjustImageSize(image); // Применяем изменение размера
+	image.style.display = "block";
+}
