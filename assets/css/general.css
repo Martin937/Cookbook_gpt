@@ -9,7 +9,7 @@ body {
 .container {
   width: 90vw;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 1em auto;
 }
 img {
   width: 100%;
@@ -81,11 +81,6 @@ nav a:hover {
   outline: none;
   cursor: pointer;
 }
-
-/* #recipe-list {
-  max-width: 80vw;
-  margin: 0 auto;
-} */
 
 /* 🔹 Карточки рецептов */
 .recipe-card {
@@ -187,16 +182,6 @@ button:hover {
 .recipe-form button {
   width: 100%;
   margin-top: 15px;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: baseline;
-}
-.actions button {
-  margin: 0 1em 1em 0;
 }
 
 /* 🔹 Скрытие кнопок при печати (для PDF-экспорта) */
