@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 		return;
 	}
 
-	console.log("Загруженный рецепт:", recipe);
-	console.log("Путь к изображению:", recipe.imagePreview);
-
 	const recipeImage = document.getElementById("recipe-image");
 	recipeImage.style.display = "none"; // Скрываем, пока не загрузится
 
@@ -96,19 +93,41 @@ document.addEventListener("DOMContentLoaded", async () => {
 	});
 });
 
+// // Функция для обработки размера изображения
+// function adjustImageSize(image) {
+// 	const headerHeight = document.querySelector("header").offsetHeight;
+// 	const maxImageHeight = (window.innerHeight - headerHeight) / 1.5;
+// 	const maxImageWidth = window.innerWidth; // Максимальная ширина = ширина экрана
+
+// 	if (image.height > maxImageHeight) {
+// 		image.style.height = `${maxImageHeight}px`;
+// 		image.style.width = "auto"; // Сохраняем пропорции
+// 	}
+// }
+
 // Функция для обработки размера изображения
 function adjustImageSize(image) {
+	const container = document.querySelector(".container");
 	const headerHeight = document.querySelector("header").offsetHeight;
-	const maxImageHeight = (window.innerHeight - headerHeight) / 1.5;
 
-	console.log("Header height:", headerHeight);
-	console.log("Max image height:", maxImageHeight);
+	// Определяем максимально допустимые размеры
+	const maxImageHeight = (window.innerHeight - headerHeight) / 2; // Не больше половины экрана
+	const maxImageWidth = container.clientWidth; // Ширина ограничена контейнером
 
-	if (image.height > maxImageHeight) {
-		image.style.height = `${maxImageHeight}px`;
-		image.style.width = "auto"; // Сохраняем пропорции
-	}
+	// Вычисляем коэффициент масштабирования по высоте и ширине
+	const heightScale = maxImageHeight / image.naturalHeight;
+	const widthScale = maxImageWidth / image.naturalWidth;
+	const scaleFactor = Math.min(heightScale, widthScale, 1); // Выбираем минимальный коэффициент
+
+	// Применяем масштабирование
+	image.style.width = `${image.naturalWidth * scaleFactor}px`;
+	image.style.height = `${image.naturalHeight * scaleFactor}px`;
 }
+
+
+
+
+
 
 // Функция установки дефолтного изображения
 function setDefaultImage(image) {
