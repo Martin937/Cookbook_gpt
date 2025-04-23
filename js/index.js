@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	const mealTypeFilter = document.getElementById("meal-type-filter");
 	const dishTypeFilter = document.getElementById("dish-type-filter");
 	const sortFilter = document.getElementById("sort-filter");
+	const myCongratulation = document.getElementById("myCongratulation")
 
 	let recipes = await getAllRecipes(); // Загружаем все рецепты
 
@@ -121,11 +122,36 @@ document.addEventListener("DOMContentLoaded", async () => {
 	// Вызов рендера при загрузке
 	renderRecipes();
 
+	let clickCount = localStorage.getItem('clickCount') ? parseInt(localStorage.getItem('clickCount')) : 0;
+	const maxClicks = 15; // Максимальное количество кликов
+
+	// Проверка, если количество кликов достигло максимума, скрываем кнопку
+	if (clickCount >= maxClicks) {
+		myCongratulation.style.display = "none";
+	}
+
+	function handleClick() {
+		clickCount++;
+		localStorage.setItem('clickCount', clickCount); // Сохраняем количество кликов
+
+		if (clickCount <= maxClicks) {
+			window.location.href = "../congratulation .html";
+		}
+
+		// Если достигнуто максимальное количество кликов, скрываем кнопку
+		if (clickCount === maxClicks) {
+			myCongratulation.style.display = "none";
+		}
+	}
+
+	myCongratulation.addEventListener("click", handleClick)
+
 	// Добавляем обработчики событий
 	searchInput.addEventListener("input", renderRecipes);
 	mealTypeFilter.addEventListener("change", renderRecipes);
 	dishTypeFilter.addEventListener("change", renderRecipes);
 	sortFilter.addEventListener("change", renderRecipes);
+
 });
 
 // Регистрируем Service Worker

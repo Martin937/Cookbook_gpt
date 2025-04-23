@@ -5,6 +5,13 @@ body {
   font-family: var(--main-font);
 }
 
+.main {
+  min-height: calc(100vh - 50px);
+  background-image: url(../img/background.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* 🔹 Контейнер */
 .container {
   width: 90vw;
@@ -38,7 +45,7 @@ header .container {
 }
 
 header h1 {
-  font-size: 1.8em;
+  font-size: 2em;
 }
 
 nav {

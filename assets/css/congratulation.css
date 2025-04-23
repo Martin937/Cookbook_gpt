@@ -1,0 +1,66 @@
+body {
+  background-color: #fffae8;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #d70000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  font-size: 2em;
+  color: #ff8c00;
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #005f5f;
+  margin-top: 15px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+li:hover {
+  transform: scale(1.02); /* Увеличение при наведении */
+}
+
+.button {
+  background-color: #ff4d00; /* Яркий фон */
+  color: white; /* Цвет текста */
+  border: none; /* Убираем границу */
+  border-radius: 5px; /* Закругленные углы */
+  padding: 10px 20px; /* Отступы */
+  font-size: 1.2em; /* Размер шрифта */
+  cursor: pointer; /* Курсор в виде указателя */
+  margin: 10px; /* Отступы между кнопками */
+  transition: background-color 0.3s; /* Плавный переход */
+}
+
+.button:hover {
+  background-color: #e60000; /* Цвет при наведении */
+}
+
+.description {
+  display: none; /* Скрываем описание по умолчанию */
+  margin-top: 20px; /* Отступ сверху */
+}
