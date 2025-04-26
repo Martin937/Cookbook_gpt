@@ -1,39 +1,62 @@
-document.getElementById('addRecipeForm').addEventListener('submit', async (e) => {
-	e.preventDefault();
+import { saveRecipeToDB } from "./db.js";
 
-	const recipe = {
-		name: document.getElementById('recipeName').value,
-		image: document.getElementById('recipeImage').value,
-		description: document.getElementById('recipeDescription').value,
-		meal_type: document.querySelector('input[name="mealType"]:checked')?.value || '',
-		dish_type: document.querySelector('input[name="dishType"]:checked')?.value || '',
-		is_diet: document.getElementById('isDiet').checked
-	};
+document.addEventListener("DOMContentLoaded", () => {
+	const form = document.getElementById("recipe-form");
+	const cancelButton = document.getElementById("cancel-recipe");
 
-	try {
-		const response = await fetch('https://t97833oh.beget.tech/cookbook/api/addRecipe.php', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(recipe)
-		});
+	form.addEventListener("submit", async (event) => {
+		event.preventDefault();
 
-		const result = await response.json();
+		const title = document.getElementById("recipe-title").value.trim();
+		const description = document.getElementById("recipe-description").value.trim();
+		const ingredients = document.getElementById("recipe-ingredients").value.trim().split("\n");
+		const steps = document.getElementById("recipe-steps").value.trim().split("\n");
+		const imageInput = document.getElementById("recipe-image");
+		let imagePreview = "";
 
-		if (result.status === 'success') {
-			alert('Рецепт успешно добавлен!');
-			document.getElementById('addRecipeForm').reset();
+		// Получаем выбранный тип блюда
+		const dishTypeInput = document.querySelector("input[name='dishType']:checked");
+		const dishType = dishTypeInput ? dishTypeInput.value : "regular";
+
+		// Получаем выбранные приемы пищи (множественный выбор)
+		const mealTypeInputs = document.querySelectorAll("input[name='mealType']:checked");
+		const mealTypes = Array.from(mealTypeInputs).map(input => input.value);
+
+		// Логируем полученные значения
+		console.log("Выбранный тип блюда:", dishType);
+		console.log("Выбранные приемы пищи:", mealTypes);
+
+		if (imageInput.files.length > 0) {
+			const file = imageInput.files[0];
+			const reader = new FileReader();
+			reader.onload = async function (e) {
+				imagePreview = e.target.result;
+				await saveRecipe({ title, description, ingredients, steps, imagePreview, dishType, mealTypes });
+			};
+			reader.readAsDataURL(file);
 		} else {
-			alert('Ошибка при добавлении рецепта: ' + result.message);
+			await saveRecipe({ title, description, ingredients, steps, imagePreview, dishType, mealTypes });
+		}
+	});
+
+	async function saveRecipe(recipe) {
+		if (!recipe.title || !recipe.description || !recipe.ingredients.length || !recipe.steps.length) {
+			alert("Пожалуйста, заполните все поля!");
+			return;
 		}
 
-	} catch (err) {
-		console.error('Ошибка при запросе:', err);
-		alert('Произошла ошибка при отправке рецепта.');
+		// Логируем перед сохранением рецепта
+		console.log("Сохраняем рецепт в базу данных:", recipe);
+
+		recipe.id = Date.now();
+		await saveRecipeToDB(recipe);
+		alert("Рецепт добавлен!");
+		window.location.href = "index.html";
 	}
+
+	cancelButton.addEventListener("click", () => {
+		window.location.href = "index.html";
+	});
 });
-
-
 
 
