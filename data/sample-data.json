@@ -1,0 +1,24 @@
+{
+  "name": "Омлет с овощами",
+  "description": "Лёгкий и вкусный омлет на завтрак!",
+  "ingredients": [
+    { "amount": 2, "unit": "шт", "name": "яйцо" },
+    { "amount": 50, "unit": "мл", "name": "молоко" },
+    { "amount": 1, "unit": "шт", "name": "помидор" },
+    { "amount": null, "unit": "", "name": "Петрушка" },
+    { "amount": null, "unit": "гр", "name": "Соль" },
+    { "amount": null, "unit": "", "name": "Перец" }
+  ],
+  "steps": [
+    { "step_number": 1, "description": "Взбейте яйца с молоком." },
+    { "step_number": 2, "description": "Нарежьте овощи." },
+    { "step_number": 3, "description": "Обжарьте овощи." },
+    {
+      "step_number": 4,
+      "description": "Вылейте яйца и жарьте до готовности."
+    }
+  ],
+  "meal_time": "breakfast",
+  "diet": "regular",
+  "image": "uploads/omelet.jpg"
+}

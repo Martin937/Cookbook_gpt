@@ -1,7 +1,0 @@
-/* Подключение других CSS-файлов */
-@import url('reset.css');
-@import url('variables.css');
-@import url('fonts.css');
-@import url('animations.css');
-@import url('general.css');
-@import url('media.css');
